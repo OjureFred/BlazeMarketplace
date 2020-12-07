@@ -11,7 +11,9 @@ def home_page(request):
     return render(request, 'home_page.html', context)
 
 def contact_page(request):
-    contact_form = ContactForm()
+    contact_form = ContactForm(request.POST or None)
+    if contact_form.is_valid():
+        print(contact_form.cleaned_data)
     context = {
         'title': 'Contact',
         'content': 'Welcome to contact page',
