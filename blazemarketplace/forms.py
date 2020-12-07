@@ -13,10 +13,10 @@ class ContactForm(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField(widget= forms.TextInput(attrs={'class': 'form-control', 'id': 'form-username', 'placeholder': 'Your Name'}))
-    password = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-password', 'placeholder': 'Your Name'}))
+    password = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-password', 'placeholder': 'Password'}))
 
 class RegisterForm(forms.Form):
     username = forms.CharField(widget= forms.TextInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Name'}))
-    email = forms.CharField(widget= forms.EmailInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Name'}))
-    password = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Name'}))
-    password2 = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Name'}))
+    email = forms.EmailField(widget= forms.EmailInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Email'}))
+    password = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Password'}))
+    password2 = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Confirm password'}))

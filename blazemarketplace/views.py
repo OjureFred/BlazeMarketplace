@@ -1,20 +1,34 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 
 from .forms import ContactForm, LoginForm, RegisterForm
 
 def home_page(request):
     context = {
         'title': 'Hello Word!!!'
+        
     }
+
+    if request.user.is_authenticated:
+        context['premium_content'] = 'This is premium content only for logged in users'
 
     return render(request, 'home_page.html', context)
 
 def login_page(request):
     form = LoginForm(request.POST or None)
-    #print(request.user.is_authenticated())
+    print(request.user.is_authenticated)
     if form.is_valid():
         print(form.cleaned_data)
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('login_page')
+        else:
+            print('Error')
+            
 
     context = {
         'title': 'Login Page',
