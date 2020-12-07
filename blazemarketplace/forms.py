@@ -12,11 +12,11 @@ class ContactForm(forms.Form):
         return email
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField()
+    username = forms.CharField(widget= forms.TextInput(attrs={'class': 'form-control', 'id': 'form-username', 'placeholder': 'Your Name'}))
+    password = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-password', 'placeholder': 'Your Name'}))
 
 class RegisterForm(forms.Form):
-    username = forms.CharField()
-    email = forms.CharField()
-    password = forms.CharField()
-    password2 = forms.CharField()
+    username = forms.CharField(widget= forms.TextInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Name'}))
+    email = forms.CharField(widget= forms.EmailInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Name'}))
+    password = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Name'}))
+    password2 = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control', 'id': 'form-fullname', 'placeholder': 'Your Name'}))

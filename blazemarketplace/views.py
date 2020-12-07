@@ -12,7 +12,7 @@ def home_page(request):
 
 def login_page(request):
     form = LoginForm(request.POST or None)
-    print(request.user.is_authenticated())
+    #print(request.user.is_authenticated())
     if form.is_valid():
         print(form.cleaned_data)
 
