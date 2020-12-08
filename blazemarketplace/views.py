@@ -3,9 +3,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.models import User
 
+from django.conf.urls.static import static
+
 from .forms import ContactForm, LoginForm, RegisterForm
 
 def home_page(request):
+    print(static)
     context = {
         'title': 'Hello Word!!!'
         
