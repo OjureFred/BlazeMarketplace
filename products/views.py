@@ -10,8 +10,17 @@ def product_list_view(request):
     return render(request, 'products/list.html', context)
 
 def product_detail_view(request, pk):
-    instance = get_object_or_404(Product, pk=pk)
+    instance = Product.objects.get_by_id(pk)
+    if instance is None:
+        raise Http404("Product does not exist")
+    print(instance)
     context = {'object': instance}
 
     return render(request, 'products/detail.html', context)
+
+def product_featured_list_view(request):
+    queryset = Product.objects.filter(featured=True)
+    context = {'object_list': queryset}
+
+    return render(request, 'products/list.html', context)
 
