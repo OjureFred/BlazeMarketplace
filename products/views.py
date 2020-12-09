@@ -24,3 +24,8 @@ def product_featured_list_view(request):
 
     return render(request, 'products/list.html', context)
 
+def product_slug_view(request, slug):
+    instance = Product.objects.get(slug=slug)
+    context = {'object': instance}
+
+    return render(request, 'products/detail.html', context)
