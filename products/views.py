@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 
 from .models import Product
 
@@ -29,3 +30,6 @@ def product_slug_view(request, slug):
     context = {'object': instance}
 
     return render(request, 'products/detail.html', context)
+
+def get_absolute_url(self):
+    return reverse('detail', kwargs={'slug': self.slug})
