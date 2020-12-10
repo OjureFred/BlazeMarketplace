@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+{% for obj in object_list %}
+    {% include 'product/snippets/card.html' with instance=obj %}
+   
+{% endfor %}
+</div>
+</div>
+{% endblock %}
