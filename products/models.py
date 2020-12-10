@@ -26,6 +26,11 @@ class ProductManager(models.Manager):
         if qs.count() == 1:
             return qs.first()
         return None
+    
+    def search(self, query):
+        return self.get.get_queryset().active().search(query)
+    
+   
 
 # Create your models here.
 class Product(models.Model):
@@ -40,6 +45,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+ 
+    def search(self, query):
+        lookups = (Q(title__icontains=query) | Q(description__icontains=query))
+        return self.filter(lookups).distinct()
+    
 
 def product_pre_save_reciever(sender, instance, *args, **kwargs):
     if not instance.slug:

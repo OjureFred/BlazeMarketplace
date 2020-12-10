@@ -12,8 +12,8 @@
         {% else %}
         
     <div class="col-12 col-md-8 mx-auto">
-            <input type="text" placeholder='Search'>
-            <hr />
+        {% include 'search/snippets/search-form.html' %}
+    <hr />
         </div>
 </div>
         {% endif %}
@@ -22,7 +22,6 @@
  {% include 'product/snippets/card.html' with instance=obj %}
    
 {% endfor %}
-
 </div>
 </div>
 {% endblock %}
