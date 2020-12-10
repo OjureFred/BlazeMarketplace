@@ -7,7 +7,7 @@ def product_list_view(request):
     queryset = Product.objects.all()
     context = {'object_list': queryset}
 
-    return render(request, 'products/list.html', context)
+    return render(request, 'product/list.html', context)
 
 def product_detail_view(request, pk):
     instance = Product.objects.get_by_id(pk)
