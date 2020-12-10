@@ -1,14 +1,14 @@
-# Hera Lending Platform
+# Blaze Marketplace Ecommerce site
 
-This is a Python Django system for managing lending activities for individuals. Customers can log in and register giving their details. Management will approve and a confirmation email sent.
+This is a Python Django eCommerce system for trading of products over the internet. The system allows users to browse, search and add products to a shopping cart. 
 
-Once registered a customer can now use the USSD menu to interact with the Lending platform and get the following services:
+Users can also register to the system. Once registered a customer can now  get the following services:
 
-1. Activate account
-2. Check account status
-3. Check loan status
-4. Check loan balance
-5. Check salary advance status
+1. Purchase products
+2. Fill out both billing and Delivery addresses
+3. Have access to history of purchases
+4. View a graphical representation of spend over time
+5. Check shopping cart status
 
 ## Getting Started
 
@@ -50,6 +50,7 @@ Coding style applied is Python PEP8
 
 -  [Python](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 -  [Bootstrap](https://maven.apache.org/) - HTML, CSS, Javascript framework
+- [Ionic] - for mobile interface
 
 ## Contributing
 
@@ -71,4 +72,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-All Technical Mentors at Moringa School
+All mentors over time

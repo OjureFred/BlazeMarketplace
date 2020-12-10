@@ -4,10 +4,25 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        {% if request.GET.q %}
+            <div class="col-12 mb-3"></div>
+                Searched for: {{ request.GET.q }}
+                <hr/>
+            </div>
+        {% else %}
+        
+    <div class="col-12 col-md-8 mx-auto">
+            <input type="text" placeholder='Search'>
+            <hr />
+        </div>
+</div>
+        {% endif %}
+ <div class="row">
 {% for obj in object_list %}
-    {% include 'product/snippets/card.html' with instance=obj %}
+ {% include 'product/snippets/card.html' with instance=obj %}
    
 {% endfor %}
+
 </div>
 </div>
 {% endblock %}
