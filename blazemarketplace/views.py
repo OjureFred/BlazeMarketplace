@@ -67,6 +67,7 @@ def contact_page(request):
         'title': 'Contact',
         'content': 'Welcome to contact page',
         'form': contact_form
+        
     }
 
     if request.method == 'POST':

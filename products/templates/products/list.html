@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
 {% for obj in object_list %}
-    <h5>{{ obj.title }} </h5><br/>
+    {% include 'products/snippetts/card.html' with instance=obj %}
+    <a href="{{obj.get_absolute_url }}">{{obj.title}}</a>
 {% endfor %}
+{% endblock %}
