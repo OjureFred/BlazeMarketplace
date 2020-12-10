@@ -10,7 +10,7 @@ from .forms import ContactForm, LoginForm, RegisterForm
 def home_page(request):
     print(static)
     context = {
-        'title': 'Hello Word!!!'
+        'title': 'Welcome To Blaze Marketplace!!!'
         
     }
 
