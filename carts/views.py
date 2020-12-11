@@ -9,20 +9,16 @@ def cart_create(user=None):
     cart_obj = Cart.objects.create(user=None, products=product)
 
 def cart_home(request):
+    request.session['cart_id'] = 12
     cart_id = request.session.get('cart_id', None)
-    if cart_id is None:
-        cart_obj = cart_create()
-        request.session['cart_id'] = cart_obj.id
+    qs = Cart.objects.filter(id = cart_id)
+    if qs.count() == 1:
+        print('Cart ID exists')
+        cart_obj = qs.first()
     else:
-        qs = Cart.objects.filter(id=cart_id)
-        if qs.count() == 1:
-            print('Cart ID exists')
-            print(cart_id)
-            cart_obj = qs.first()
-        else:
-            cart_obj = cart_create()
-            request.session['cart_id']= cart_obj.id
+        cart_obj = cart_create()
+        #request.session['cart_id']= cart_obj.id
         
-    context = {'title': 'Blazemarket Shopping Cart'}
+    context = {'title': 'Blazemarket Shopping Cart', 'cart_id': cart_id}
    
     return render(request, 'carts/home.html', context)
