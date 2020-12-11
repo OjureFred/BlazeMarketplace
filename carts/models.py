@@ -30,7 +30,7 @@ class CartManager(models.Manager):
         if user is not None:
             if user.is_authenticated:
                 user_obj = user
-        return self.model.objects.create(user=user_obj, products=product)
+        return self.model.objects.create(user=user_obj)
 
 class Cart(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
@@ -45,12 +45,20 @@ class Cart(models.Model):
     def __str__(self):
         return str(self.id)
 
+def m2m_changed_cart_reciever(sender, instance, action, *args, **kwargs):
+    print(action)
+    if action =='post_add' or action =='post_remove' or action=='post_clear':
+        products = instance.products.all()
+        total = 0
+        for x in products:
+            total += x.price
+        print(total)
+        instance.subtotal = total
+        instance.save()
+
 def pre_save_cart_reciever(sender, instance, *args, **kwargs):
-    products = instance.products.all()
-    total = 0
-    for x in products:
-        total += x.price
-    print(total)
-    instance.total = total
+    instance.total = instance.subtotal + 500
+
+m2m_changed.connect(m2m_changed_cart_reciever, sender=Cart.products.through)
 
 pre_save.connect(pre_save_cart_reciever, sender=Cart)
