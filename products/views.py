@@ -17,19 +17,19 @@ def product_detail_view(request, pk):
     print(instance)
     context = {'object': instance}
 
-    return render(request, 'products/detail.html', context)
+    return render(request, 'product/detail.html', context)
 
 def product_featured_list_view(request):
     queryset = Product.objects.filter(featured=True)
     context = {'object_list': queryset}
 
-    return render(request, 'products/list.html', context)
+    return render(request, 'product/list.html', context)
 
 def product_slug_view(request, slug):
     instance = Product.objects.get(slug=slug)
     context = {'object': instance}
 
-    return render(request, 'products/detail.html', context)
+    return render(request, 'product/detail.html', context)
 
 def get_absolute_url(self):
     return reverse('detail', kwargs={'slug': self.slug})
