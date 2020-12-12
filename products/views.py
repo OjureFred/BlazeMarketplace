@@ -38,7 +38,7 @@ def get_absolute_url(self):
 
 class ProductListView(ListView):
     queryset = Products.objects.all()
-    template_name = 'products/list.html'
+    template_name = 'product/list.html'
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductListView, self).get_context_data(*args, **kwargs)
@@ -46,4 +46,26 @@ class ProductListView(ListView):
 
 class ProductDetailView(DetailView):
     queryset = Products.objects.all()
-    template_name = 'products/detail.html'
+    template_name = 'product/detail.html'
+
+    def get_object(self, *args, **kwargs):
+        request = self.request
+        pk = self.kwargs.get('pk')
+        instance = Products.objects.get_by_id(pk)
+        if instance is None:
+            raise Http404('Product does not exist')
+        return instance
+
+class ProductFeaturedListView(ListView):
+    template_name = 'product/list.html'
+
+    def get_queryset(self, *args, **kwargs):
+        request = self.request
+        return Products.objects.featured()
+
+class ProductFeaturedDetailView(DetailView):
+    template_name = 'product/featured-detail.html'
+
+    def get_queryset(self, *args, **kwargs):
+        request = self.request
+        return Products.objects.featured()
