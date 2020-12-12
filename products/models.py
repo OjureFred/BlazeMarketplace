@@ -31,9 +31,14 @@ class ProductManager(models.Manager):
         return self.get.get_queryset().active().search(query)
     
     def featured(self):
-        return self.get_queryset().filter(featured = True)
+        return self.get_queryset().filter(featured=True)
     
-   
+    def get_queryset(self):
+        return ProductQuerySet(self.model, using=self.db)
+    
+class ProductQuerySet(models.query.QuerySet):
+    def featured(self):
+        return self.filter(featured=True)
 
 # Create your models here.
 class Product(models.Model):
