@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, DetailView
 from django.urls import reverse
 
 from .models import Product
@@ -33,3 +34,16 @@ def product_slug_view(request, slug):
 
 def get_absolute_url(self):
     return reverse('detail', kwargs={'slug': self.slug})
+
+
+class ProductListView(ListView):
+    queryset = Products.objects.all()
+    template_name = 'products/list.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProductListView, self).get_context_data(*args, **kwargs)
+        return context
+
+class ProductDetailView(DetailView):
+    queryset = Products.objects.all()
+    template_name = 'products/detail.html'
