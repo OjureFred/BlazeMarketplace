@@ -70,13 +70,7 @@
             </div>
             <div class="col-12 col-md-6">
                 
-                {% if object in cart.products.all %}
-                In Cart 
-                <a href="#" class="btn btn-primary btn-block btn-lg">Remove</a>
-                {% else %}
-                Add to Cart
-                <a href="#" class="btn btn-primary btn-block btn-lg">Add to Cart</a> 
-                {% endif %}
+                {% include "products/snippets/update-cart.html" with product = object cart = cart %}
                               
             </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-b-60">
