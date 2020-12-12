@@ -5,7 +5,7 @@ from django.conf.urls import url,include
 from . import views
 
 urlpatterns = [
-path('cart/', views.cart_home, name='cart'),
+path('cart/', views.cart_home, name='cart_home'),
 path('cart_update/', views.cart_update, name='update'),
 ]
 

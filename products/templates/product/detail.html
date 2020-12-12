@@ -64,9 +64,20 @@
                     <div class="product-description">
                         <h4 class="mb-1">Descriptions</h4>
                         <p>Praesent et cursus quam. Etiam vulputate est et metus pellentesque iaculis. Suspendisse nec urna augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-                        <a href="#" class="btn btn-primary btn-block btn-lg">Add to Cart</a>
+                        
                     </div>
                 </div>
+            </div>
+            <div class="col-12 col-md-6">
+                
+                {% if object in cart.products.all %}
+                In Cart 
+                <a href="#" class="btn btn-primary btn-block btn-lg">Remove</a>
+                {% else %}
+                Add to Cart
+                <a href="#" class="btn btn-primary btn-block btn-lg">Add to Cart</a> 
+                {% endif %}
+                              
             </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-b-60">
                 <div class="simple-card">
