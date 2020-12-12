@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
-<h1>{{title}}</h1>
-<h5>Cart ID: {{ cart_obj.id }}</h5>
 <h1>Cart</h1>
-{% if cart.products.exists %}
+{% if cart.products.exists() %}
 <table class="table">
     <thead>
         <tr>
@@ -17,7 +16,7 @@
     {% for product in cart.products.all %}
 
     <tr>
-        <td scope="row">{{ forloop.counter }}</td>
+        <td scope="row">{{ for loop.counter }}</td>
         <td><a href= "{{product.get_absolute_url}}"></a>{{ product.title }}<a href="#"><smal>Remove?</smal></a></td>
         <td>{{ product.price }}</td>
         
@@ -37,7 +36,5 @@
 
 {% else %}
 <p class="lead">Cart is Empty</p>
-
-{% endif %}
 
 {% endblock %}
