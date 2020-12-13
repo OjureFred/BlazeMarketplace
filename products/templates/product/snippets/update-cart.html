@@ -2,8 +2,8 @@
     {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}">
     {% if product in cart.products.all %}
-    In Cart <button type="submit" class="btn btn-link">Remove</button>
+    In Cart <button type="submit" class="btn btn-sm btn-link">Remove</button>
     {% else %}
-    <button type="submit" class="btn btn-success">Add to Cart</button>
+    <button type="submit" class="btn btn-sm btn-success">Add to Cart</button>
     {% endif %}
 </form>
