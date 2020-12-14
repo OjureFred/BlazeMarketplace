@@ -1,0 +1,1 @@
+web: gunicorn blazemarketplace.wsgi --log-file -
