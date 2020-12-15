@@ -3,21 +3,28 @@
 
 {% block content %}
 
-
+<div class="container">
     <div class='row'>
+      
         <div class='col-12 col-md-6'>
+            <p></p>
                 <h1>{{ object.title }}</h1>
-                {{ object.timestamp|timesince }} ago
-                {{ object.description|linebreaks }}<br/>
                 {% if object.image %}
-                    <img src='{{ object.image.url }}' class='img-fluid' />
+                    <img src='{{ object.image.url }}' class='img-fluid' style="width:400px; height:300px;" />
                 {% endif %}
+
+                {{ object.timestamp|timesince }}
+                {{ object.description|linebreaks }}<br/>
+                
         </div>
+    </div>
+    <div class="row">
         <div class='col-12 col-md-6'>
             {% include 'product/snippets/update-cart.html' with product=object cart=cart %}
 
         </div>
+        </div>
 </div>
-
+</div>
 
 {% endblock %}
