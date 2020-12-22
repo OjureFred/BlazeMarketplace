@@ -30,15 +30,11 @@
     </tr>
     <tr>
       <td colspan="2"></td>
-      <td><b>Shipping</b> KES<span class='cart-subtotal'>500/=</span></td>
-    </tr>
-    <tr>
-      <td colspan="2"></td>
       <td><b>Total</b> KES<span class='cart-total'>{{ cart.total }}</span></td>
     </tr>
     <tr>
       <td colspan="2"></td>
-      <td><a class='btn btn-lg btn-success' href='#'>Checkout</a></td>
+      <td><a class='btn btn-lg btn-success' href='{% url "checkout" %}'>Checkout</a></td>
     </tr>
 
   </tbody>
