@@ -4,7 +4,7 @@ import os
 
 from django.db.models.signals import pre_save, post_save
 from django.urls import reverse
-from .utils import unique_slug_generator
+from blazemarketplace.utils import unique_slug_generator
 
 
 def upload_image_path(instance, filename):
