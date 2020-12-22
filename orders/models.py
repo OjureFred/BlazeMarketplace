@@ -1,6 +1,9 @@
 from django.db import models
 
+from django.db.models.signals import pre_save
+
 from carts.models import Cart
+from blazemarketplace.utils import unique_order_id_generator
 # Create your models here.
 
 class Order(models.Model):
