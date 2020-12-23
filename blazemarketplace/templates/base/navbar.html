@@ -5,6 +5,7 @@
 {% url 'login_page' as login_url %}
 {% url 'products:list' as product_url %}
 {% url 'cart_home' as cart_url %}
+{% url 'logout' as logout_url %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">{% if brand_name %} {{brand_name }}{% else %}Alpha Digital Market{% endif %}</a>
@@ -26,19 +27,18 @@
             <a class="nav-link" href="{% url 'register_page' %}">Register</a>
           </li>
           {% if request.user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login_page' %}">Login</a>
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login_page' %}">Logout</a>
+            <a class="nav-link" href="{% url 'login_page' %}">Login</a>
           </li>
           {% endif %}
           <li class="nav-item {% if request.path == cart_url %} activate {% endif %}">
             <a class="nav-link" href="{{ cart_url}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i><b>{{request.session.cart_items}}</b></a>
           </li>
-          
-          
+             
         </ul>
         <div ml-auto>
         {% include 'search/snippets/search-form.html' %}
