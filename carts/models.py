@@ -3,6 +3,8 @@ from django.db import models
 
 from django.db.models.signals import pre_save, post_save, m2m_changed
 
+from decimal import Decimal
+
 from products.models import Product
 
 User = settings.AUTH_USER_MODEL
@@ -58,7 +60,7 @@ def m2m_changed_cart_reciever(sender, instance, action, *args, **kwargs):
 
 def pre_save_cart_reciever(sender, instance, *args, **kwargs):
     if instance.subtotal > 0:
-        instance.total = instance.subtotal 
+        instance.total = Decimal(instance.subtotal)
     else:
         instance.total = 0.00
 

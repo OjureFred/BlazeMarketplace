@@ -51,5 +51,8 @@ def checkout_home(request):
         order_obj, new_order_obj = Order.objects.get_or_create(cart=cart_obj)
 
     context = {'object': order_obj}
+    print(order_obj.order_id)
+    print(order_obj.shipping_total)
+    print(order_obj.cart.total)
     print(order_obj.total)
     return render(request, 'carts/checkout.html', context)
