@@ -1,4 +1,12 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth.models import User
+
+from django.conf.urls.static import static
+
+from .forms import ContactForm, LoginForm, RegisterForm
+
 
 # Create your views here.
 def login_page(request):
