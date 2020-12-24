@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from accounts.forms import LoginForm
+from billing.models import BillingProfile
 from products.models import Product
 from orders.models import Order
 
@@ -9,6 +10,13 @@ from .models import Cart
 # Create your views here.
 def cart_home(request):
     cart_obj, new_obj = Cart.objects.new_or_get(request)
+
+    user = request.user
+    billing_profile = None
+    login_form = LoginForm()
+
+    if user.is_authenticated:
+        billing_profile, billing_profile_created = BillingProfile.objects.get_or_create(user = user, email= user.email)
                 
     context = {'title': 'Blazemarket Shopping Cart', 'cart': cart_obj}
    

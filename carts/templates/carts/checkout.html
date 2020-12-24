@@ -2,6 +2,18 @@
 
 {% block content %}
 <div class="container">
+{% if not billing_profile %}
+<div class="row text-center">
+    <div class="col-12 col-md-6">
+        <p class="lead">Login</p>
+        {% include 'accounts/snippets/form.html' with form=login_form next_url=request.build_absolute_uri %}
+    </div>
+    <div class="col-12 col-md-6">
+        <p>Continue as Guest</p>
+    </div>
+</div>
+
+{% else %}
 <hr />
 <h1>Checkout</h1>
 <br />
@@ -11,6 +23,8 @@
 <p>Shipping Total: {{object.shipping_total }} </p>
 <p>Order Total: {{object.total }} </p>
 
+{% endif %}
 </div>
+
 
 {% endblock %}
