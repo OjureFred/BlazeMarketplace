@@ -46,3 +46,6 @@ class RegisterForm(forms.Form):
         if qs.exists():
             raise forms.ValidationError('This email is taken')
         return email
+
+class GuestForm(forms.Form):
+    email = forms.EmailField()

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from accounts.forms import LoginForm
+from accounts.forms import LoginForm, GuestForm
 from billing.models import BillingProfile
 from products.models import Product
 from orders.models import Order
