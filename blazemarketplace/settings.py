@@ -91,7 +91,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-LOGOUT_REDIRECT_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/accounts/login_page'
 ROOT_URLCONF = 'blazemarketplace.urls'
 
 TEMPLATES = [

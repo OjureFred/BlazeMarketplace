@@ -23,7 +23,7 @@ from .views import home_page, contact_page, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('logout/', LogoutView.as_view, name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('accounts/', include('accounts.urls')),
     path('products/', include('products.urls')),
     path('search/', include('search.urls')),
