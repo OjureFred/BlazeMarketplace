@@ -10,15 +10,13 @@ from billing.models import BillingProfile
 from blazemarketplace.utils import unique_order_id_generator
 # Create your models here.
 
-class Order(models.Model):
-
-    ORDER_STATUS_CHOICES = (
+ORDER_STATUS_CHOICES = (
         ('created', 'Created'),
         ('paid', 'Paid'),
         ('shipped', 'Shipped'),
         ('refunded', 'Refunded'),
     )
-
+class Order(models.Model):
     order_id = models.CharField(max_length=120, blank=True)
     billing_profile = models.ForeignKey(BillingProfile, null=True, blank=True, on_delete=models.CASCADE)
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
