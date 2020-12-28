@@ -5,6 +5,6 @@ from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
-path('checkout_address', views.checkout_address_create_view, name = 'login_page'),
+path('checkout_address_create', views.checkout_address_create_view, name = 'checkout_address_create'),
 
 ]

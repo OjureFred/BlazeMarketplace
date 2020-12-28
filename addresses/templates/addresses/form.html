@@ -1,4 +1,4 @@
-<form method="POST" action="{% if action_url %} {{ action_url}} {% else %} {% url 'login_page' %} {% endif %}>
+<form method="POST" action="{% if action_url %} {{ action_url}} {% else %} {% url 'checkout_address_create' %} {% endif %}">
     {% csrf_token %}
 
     {% if next_url %}
