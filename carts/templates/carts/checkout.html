@@ -45,12 +45,15 @@
         <h1>Finalize Checkout</h1>
         <br />
 
-        <hr />
+                <hr />
         <p>Cart Total: {{object.cart.total}} </p>
         <p>Shipping Total: {{object.shipping_total }} </p>
         <p>Order Total: {{object.total }} </p>
         <p></p>
-        <button>Checkout</button>
+        <form class="form" method="POST" action="">
+            {% csrf_token %}
+            <button type="submit">Checkout</button>
+        </form>
 
     
         {% endif %}
