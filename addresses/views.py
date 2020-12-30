@@ -3,6 +3,7 @@ from django.utils.http import is_safe_url
 
 from billing.models import BillingProfile
 from .forms import AddressForm
+from .models import Address
 
 # Create your views here.
 def checkout_address_create_view(request):
@@ -35,3 +36,6 @@ def checkout_address_create_view(request):
         else:
             return redirect('checkout')
     return redirect('checkout')
+
+    def checkout_address_use_view(self):
+
