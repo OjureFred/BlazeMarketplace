@@ -2,20 +2,47 @@
 {% load static %}
 {% block content %}
     <div class="container">
-   <h1>{{ title }} </h1>
+  
+      <div class="jumbotron mx-auto">
+        <h1 class="display-4">Welcome to AlphaMarket!!!!!!</h1>
+        <p class="lead">The digital market that offers great deals and products for consumers.</p>
+        <hr class="my-4">
+        <p>Step in for an amazing shopping experience......</p>
+        
+      </div>
+      <div class="row">
+        <div class="card mx-auto"  style="width: 20rem;">
+          <img class="card-img-top" src="https://source.unsplash.com/category/brush" alt="Card image cap" width="500" height="200">
+          <div class="card-body">
+            <h5 class="card-title">Amazing deals...</h5>
+            <p class="card-text">We always give great deals to customers to commemorate days and activities dear to them.</p>
+            
+          </div>
+        </div>
 
-    <img src="{% static '/img/soko.jpg' %}" class="img-fluid" alt="My Image">
+        <div class="card mx-auto" px-2 style="width: 20rem;">
+          <img class="card-img-top" src="https://source.unsplash.com/category/clothe" alt="Card image cap" width="500" height="200">
+          <div class="card-body">
+            <h5 class="card-title">Amazing products..</h5>
+            <p class="card-text">We connect with suppliers at home and abroad to get you the best products for your needs.</p>
+            
+          </div>
+        </div>
 
-   {% if request.user.is_authenticated %}
-   <div class='row'>
-     <div class="col">
-       <h1>Premium Content</h1>
-       {{ premium_content }}
-     </div>
-
-   </div>
-   {% endif %}
-
+        <div class="card mx-auto" px-2 style="width: 20rem;">
+          <img class="card-img-top" src="https://source.unsplash.com/category/drink" alt="Card image cap" width="500" height="200">
+          <div class="card-body">
+            <h5 class="card-title">Amazing experience...</h5>
+            <p class="card-text">We have ensured that the whole shopping experience is amazing for you. We always improve based on feedback.</p>
+            
+          </div>
+        </div>
+      </div>
+<div class="px-2">
+<p class="lead">
+  <a class="btn btn-primary btn-lg" href="{% url 'products_list' %}" role="button">Get Started......</a>
+</p>
+</div>
    </div>
 
    {% endblock %}
