@@ -24,7 +24,7 @@ PROJECT_DIR = os.path.dirname(__file__)
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
-development
+#development
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
