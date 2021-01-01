@@ -1,9 +1,9 @@
-<form method="POST" action="{% if action_url %} {{ action_url}} {% else %} {% url 'login_page' %} {% endif %}>
-    {% csrf_token %}
-
-    {% if next_url %}
-    <input type="hidden" name="next" value="{{ next_url }}" />
-    {% endif %}
-    {{ form }}
-    <button type="submit" class="bth btn-default">Submit</button>
+<form
+   method="POST"
+   action="{% if action_url %} {{ action_url}} {% else %} {% url 'login_page' %} {% endif %}"
+>
+   {% csrf_token %} {% if next_url %}
+   <input type="hidden" name="next" value="{{ next_url }}" />
+   {% endif %} {{ form }}
+   <button type="submit" class="bth btn-default">Submit</button>
 </form>
